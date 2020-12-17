@@ -1,4 +1,4 @@
-const SUCCESS = require("./success.messages");
+const SUCCESS = require("./messages");
 const STATUS = require("./status.code");
 
 class ResponseHandler {

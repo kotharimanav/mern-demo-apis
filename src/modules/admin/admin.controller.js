@@ -1,7 +1,6 @@
 const ResponseHandler = require("../../utils/responseHandler/response.handler");
-const {ERROR} = require("../../utils/responseHandler/error.messages");
+const {ERROR,SUCCESS} = require("../../utils/responseHandler/messages");
 const adminService = require("./admin.service");
-const SUCCESS = require("../../utils/responseHandler/success.messages");
 const Admin = require("../../utils/utils/Admin");
 
 exports.createAdmin = async (req, res) => {
@@ -14,6 +13,7 @@ exports.createAdmin = async (req, res) => {
   if (admin) {
     return ResponseHandler.conflict(res, ERROR.EMIL_ALREADY_REG);
   }
+  console.log(req.body);
 
   try {
     await Admin.createAdmin(req.body);

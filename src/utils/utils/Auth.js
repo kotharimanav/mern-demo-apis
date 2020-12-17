@@ -2,8 +2,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const config = require("../../config");
 const ResponseHandler = require("../../utils/responseHandler/response.handler");
-const ERROR = require("../../utils/responseHandler/error.messages");
-const SUCCESS = require("../../utils/responseHandler/success.messages");
+const {ERROR,SUCCESS} = require("../responseHandler/messages");
 const adminService = require("../../modules/admin/admin.service");
 
 class Auth {
@@ -30,9 +29,9 @@ class Auth {
   static async login(req, res) {
     const email = req.body.email;
     const password = req.body.password;
-
-    if (email && password) {
-      const admin = await adminService.getAdmin(email);
+    const admin = await adminService.getAdmin(email);
+    console.log(email,password,admin);
+    if (email && password && admin) {
       const isLogin = await bcrypt.compare(password, admin.password);
 
       if (isLogin) {

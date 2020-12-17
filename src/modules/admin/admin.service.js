@@ -6,7 +6,7 @@ exports.createAdmin = async adminDetails => {
 };
 
 exports.getAdmin = async email => {
-  return await AdminSchema.findOne({ email: email });
+  return await AdminSchema.findOne({ email });
 };
 
 exports.getAdminById = async id => {

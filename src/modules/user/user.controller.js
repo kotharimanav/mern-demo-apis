@@ -1,13 +1,19 @@
 const userService = require("./user.service");
 const ResponseHandler = require("../../utils/responseHandler/response.handler");
-const {ERROR,SUCCESS} = require("../../utils/responseHandler/error.messages");
+const {ERROR,SUCCESS} = require("../../utils/responseHandler/messages");
 const STATUS = require("../../utils/responseHandler/status.code");
 
 exports.userInfo = async (req, res) => {
   let users = [];
+
+  const search = req.query.search || '';
+  const sort_field = req.query.sort_field || 'created_at';
+  const sort_direction = req.query.sort_direction || 1;
+
   try {
-    users = await userService.getAllusers();
+    users = await userService.getAllusers(search,sort_field,sort_direction);
   } catch (error) {
+    console.log(error);
     return ResponseHandler.internalServerError(
       res,
       ERROR.INTERNAL_SERVER_ERROR

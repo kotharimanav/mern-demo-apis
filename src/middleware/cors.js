@@ -9,7 +9,7 @@ const options = {
   optionsSuccessStatus: config.get("cors.successPorts")
 };
 
-app.options("*", cors(options));
+app.use(cors());
 
 // app.use(cors(options));
 // app.use(helmet());

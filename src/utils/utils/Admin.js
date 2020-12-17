@@ -2,7 +2,7 @@ const config = require("../../config");
 const adminService = require("./../../modules/admin/admin.service");
 const ResponseHandler = require("../responseHandler/response.handler");
 const bcrypt = require("bcrypt");
-
+const {ERROR,SUCCESS} = require("../../utils/responseHandler/messages");
 class Admin {
   static async createAdmin(admin) {
     bcrypt.hash(admin.password, config.get("saltRound"), async (err, hash) => {

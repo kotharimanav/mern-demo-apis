@@ -30,7 +30,7 @@ const config = convict({
     origin: {
       doc: "allowed origins",
       format: Array,
-      default: ["http://localhost:3000/"],
+      default: ["http://localhost:3001/"],
       arg: "origin"
     },
     methods: {

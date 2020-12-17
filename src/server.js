@@ -15,15 +15,6 @@ app.use(middleware);
 //db connection
 DbConnection.connection();
 
-// app.use(async (req, res, next) => {
-//   try {
-//     await DbConnection.connection();
-//   } catch (err) {
-//     console.log(err);
-//   }
-//   return next();
-// });
-
 //app routes
 app.use(routes);
 

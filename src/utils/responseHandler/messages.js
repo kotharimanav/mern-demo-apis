@@ -13,7 +13,11 @@ const ERROR = {
 
 const SUCCESS = {
   USER_UPDATED:"user details saved successfully",
-  USER_REMOVED:"user removed successfully"
+  USER_REMOVED:"user removed successfully",
+  OK: "OK",
+  AUTH_SUCCESS: "Authentication successful!",
+  LOGOUT: "Successfully logout",
+  ADMIN_CREATED: "Admin registered successfully"
 };
 
 module.exports = {SUCCESS,ERROR};
