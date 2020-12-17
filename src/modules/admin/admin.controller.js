@@ -13,11 +13,11 @@ exports.createAdmin = async (req, res) => {
   if (admin) {
     return ResponseHandler.conflict(res, ERROR.EMIL_ALREADY_REG);
   }
-  console.log(req.body);
 
   try {
     await Admin.createAdmin(req.body);
   } catch (error) {
+    console.log(error);
     return ResponseHandler.internalServerError(
       res,
       ERROR.INTERNAL_SERVER_ERROR

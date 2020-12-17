@@ -30,7 +30,6 @@ class Auth {
     const email = req.body.email;
     const password = req.body.password;
     const admin = await adminService.getAdmin(email);
-    console.log(email,password,admin);
     if (email && password && admin) {
       const isLogin = await bcrypt.compare(password, admin.password);
 

@@ -42,6 +42,7 @@ exports.createUser = async (req, res) => {
       return ResponseHandler.internalServerError(res, ERROR.USER_NOT_FOUND);
     }
   } catch (error) {
+    console.log(error);
     return ResponseHandler.internalServerError(
       res,
       ERROR.INTERNAL_SERVER_ERROR
@@ -51,7 +52,6 @@ exports.createUser = async (req, res) => {
 };
 
 exports.updateUser = async (req, res) => {
-  console.log(req.params,req.body);
   if(!req.params.id){
     return ResponseHandler.notFound(res, ERROR.ID_REQUIRED);
   }
@@ -81,6 +81,7 @@ exports.removeUser = async (req, res) => {
   try {
     await userService.removeUser(req.params.id);
   } catch (error) {
+    console.log(error);
     return ResponseHandler.internalServerError(
       res,
       ERROR.INTERNAL_SERVER_ERROR
