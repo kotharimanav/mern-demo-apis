@@ -1,10 +1,12 @@
-### setup
+### MERN DEMO APP
+
+### Setup
 
 ```
 npm install
 ```
 
-### run server
+### Run Server
 
 ```
 npm start
