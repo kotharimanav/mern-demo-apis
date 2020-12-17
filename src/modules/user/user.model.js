@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const VendorSchema = mongoose.model(
+const UserSchema = mongoose.model(
   "users",
   new Schema(
     {
       name: String,
-      address: String
+      email: String
     },
     {
       timestamps: {
@@ -17,4 +17,4 @@ const VendorSchema = mongoose.model(
   )
 );
 
-module.exports = VendorSchema;
+module.exports = UserSchema;

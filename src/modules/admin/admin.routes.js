@@ -11,6 +11,5 @@ router.use(Auth.checkToken);
 router.post("/", adminController.createAdmin);
 router.get("/:id", adminController.getAdminById);
 
-// router.post("/", adminController.createAdmin);
 
 module.exports = router;

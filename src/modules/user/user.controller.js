@@ -16,13 +16,13 @@ exports.userInfo = async (req, res) => {
 };
 
 exports.createUser = async (req, res) => {
-  if (!req.body.name || !req.body.address) {
+  if (!req.body.name || !req.body.email) {
     return ResponseHandler.internalServerError(res, ERROR.ALL_FIELD_REQUIRED);
   }
 
   const user = {
     name: req.body.name,
-    address: req.body.address
+    email: req.body.email
   };
 
   let userDetails = {};
@@ -31,7 +31,7 @@ exports.createUser = async (req, res) => {
     userDetails = await userService.createUser(user);
 
     if (!userDetails) {
-      return ResponseHandler.internalServerError(res, ERROR.user_NOT_FOUND);
+      return ResponseHandler.internalServerError(res, ERROR.USER_NOT_FOUND);
     }
   } catch (error) {
     return ResponseHandler.internalServerError(

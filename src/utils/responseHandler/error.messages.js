@@ -1,6 +1,6 @@
 const ERROR = {
   ALL_FIELD_REQUIRED: "All field required",
-  VENDOR_NOT_FOUND: "Vendor not found",
+  USER_NOT_FOUND: "User not found",
   INTERNAL_SERVER_ERROR: "Internal Server Error",
   PERMISSION_DENIED: "Permission denied",
   TOKEN_INVALID: "Token invalid",

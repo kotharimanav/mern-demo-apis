@@ -1,3 +1,3 @@
-const vendorRoutes = require("./user.routes");
+const userRoutes = require("./user.routes");
 
-module.exports = { vendorRoutes };
+module.exports = { userRoutes };
