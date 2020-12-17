@@ -2,8 +2,11 @@ const userService = require("./user.service");
 const ResponseHandler = require("../../utils/responseHandler/response.handler");
 const {ERROR,SUCCESS} = require("../../utils/responseHandler/messages");
 const STATUS = require("../../utils/responseHandler/status.code");
+const Logger = require('../../utils/utils/Log');
+const logger = new Logger('user.controller.js');
 
 exports.userInfo = async (req, res) => {
+  logger.debug('get users called')
   let users = [];
 
   const search = req.query.search || '';
@@ -13,7 +16,7 @@ exports.userInfo = async (req, res) => {
   try {
     users = await userService.getAllusers(search,sort_field,sort_direction);
   } catch (error) {
-    console.log(error);
+    logger.error(error);
     return ResponseHandler.internalServerError(
       res,
       ERROR.INTERNAL_SERVER_ERROR
@@ -23,6 +26,7 @@ exports.userInfo = async (req, res) => {
 };
 
 exports.createUser = async (req, res) => {
+  logger.debug('create users called')
   if (!req.body.name || !req.body.email || !req.body.age) {
     return ResponseHandler.internalServerError(res, ERROR.ALL_FIELD_REQUIRED);
   }
@@ -42,7 +46,7 @@ exports.createUser = async (req, res) => {
       return ResponseHandler.internalServerError(res, ERROR.USER_NOT_FOUND);
     }
   } catch (error) {
-    console.log(error);
+    logger.error(error);
     return ResponseHandler.internalServerError(
       res,
       ERROR.INTERNAL_SERVER_ERROR
@@ -52,6 +56,7 @@ exports.createUser = async (req, res) => {
 };
 
 exports.updateUser = async (req, res) => {
+  logger.debug('update user called')
   if(!req.params.id){
     return ResponseHandler.notFound(res, ERROR.ID_REQUIRED);
   }
@@ -64,7 +69,7 @@ exports.updateUser = async (req, res) => {
   try {
     await userService.updateUser(req.params.id,user);
   } catch (error) {
-    console.log(error);
+    logger.error(error);
     return ResponseHandler.internalServerError(
       res,
       ERROR.INTERNAL_SERVER_ERROR
@@ -74,6 +79,7 @@ exports.updateUser = async (req, res) => {
 };
 
 exports.removeUser = async (req, res) => {
+  logger.debug('remove user called')
   if(!req.params.id){
     return ResponseHandler.notFound(res, ERROR.ID_REQUIRED);
   }
@@ -81,7 +87,7 @@ exports.removeUser = async (req, res) => {
   try {
     await userService.removeUser(req.params.id);
   } catch (error) {
-    console.log(error);
+    logger.error(error);
     return ResponseHandler.internalServerError(
       res,
       ERROR.INTERNAL_SERVER_ERROR
