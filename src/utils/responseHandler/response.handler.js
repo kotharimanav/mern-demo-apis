@@ -28,6 +28,10 @@ class ResponseHandler {
     return this.send(res, STATUS.CONFLICT, message);
   }
 
+  static notFound(res, message) {
+    return this.send(res, STATUS.NOT_FOUND, message);
+  }
+
   static send(res, statusCode, message) {
     return res.status(statusCode).json({ message: message });
   }

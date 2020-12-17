@@ -1,5 +1,5 @@
 const ResponseHandler = require("../../utils/responseHandler/response.handler");
-const ERROR = require("../../utils/responseHandler/error.messages");
+const {ERROR} = require("../../utils/responseHandler/error.messages");
 const adminService = require("./admin.service");
 const SUCCESS = require("../../utils/responseHandler/success.messages");
 const Admin = require("../../utils/utils/Admin");

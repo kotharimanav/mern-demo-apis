@@ -6,7 +6,8 @@ const UserSchema = mongoose.model(
   new Schema(
     {
       name: String,
-      email: String
+      email: String,
+      age: Number
     },
     {
       timestamps: {

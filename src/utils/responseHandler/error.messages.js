@@ -11,4 +11,9 @@ const ERROR = {
   ID_REQUIRED: "Id required"
 };
 
-module.exports = ERROR;
+const SUCCESS = {
+  USER_UPDATED:"user details saved successfully",
+  USER_REMOVED:"user removed successfully"
+};
+
+module.exports = {SUCCESS,ERROR};

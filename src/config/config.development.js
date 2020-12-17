@@ -4,7 +4,7 @@ const config = convict({
   port: {
     doc: "application port",
     format: Number,
-    default: 3000,
+    default: 3001,
     arg: "port"
   },
   dbUrl: {
